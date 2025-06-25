@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Система управления геометрическими объектами</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@8.2.0/ol.css">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Система управления геометрическими объектами</h1>
+        </header>
+        
+        <div class="main-content">
+            <div class="controls-panel">
+                <div class="control-group">
+                    <h3>Инструменты рисования</h3>
+                    <button id="draw-point" class="tool-btn">Добавить маркер</button>
+                    <button id="draw-line" class="tool-btn">Нарисовать линию</button>
+                    <button id="draw-polygon" class="tool-btn">Нарисовать многоугольник</button>
+                    <button id="modify" class="tool-btn">Редактировать</button>
+                    <button id="delete" class="tool-btn delete-btn">Удалить</button>
+                </div>
+                
+                <div class="control-group">
+                    <h3>Сохранение объекта</h3>
+                    <input type="text" id="object-name" placeholder="Название объекта" />
+                    <button id="save-object" class="save-btn">Сохранить</button>
+                </div>
+                
+                <div class="control-group">
+                    <h3>Список объектов</h3>
+                    <div id="objects-list" class="objects-list"></div>
+                    <button id="refresh-list" class="refresh-btn">Обновить список</button>
+                </div>
+            </div>
+            
+            <div class="map-container">
+                <div id="map" class="map"></div>
+            </div>
+        </div>
+        
+        <div id="status" class="status-bar">Готов к работе</div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/ol@8.2.0/dist/ol.js"></script>
+    
+    <script src="js/app.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.geodata.mapper.GeometricObjectMapper">
+    
+    <resultMap id="GeometricObjectResultMap" type="com.geodata.model.GeometricObject">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="type" column="type"/>
+        <result property="coordinates" column="coordinates"/>
+    </resultMap>
+
+    <select id="findAll" resultMap="GeometricObjectResultMap">
+        SELECT id, name, type, coordinates 
+        FROM geometric_objects
+        ORDER BY id
+    </select>
+
+    <select id="findById" parameterType="Long" resultMap="GeometricObjectResultMap">
+        SELECT id, name, type, coordinates 
+        FROM geometric_objects 
+        WHERE id = #{id}
+    </select>
+
+    <insert id="insert" parameterType="com.geodata.model.GeometricObject" 
+            useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO geometric_objects (name, type, coordinates) 
+        VALUES (#{name}, #{type}, #{coordinates})
+    </insert>
+
+    <update id="update" parameterType="com.geodata.model.GeometricObject">
+        UPDATE geometric_objects 
+        SET name = #{name}, type = #{type}, coordinates = #{coordinates} 
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="Long">
+        DELETE FROM geometric_objects 
+        WHERE id = #{id}
+    </delete>
+
+</mapper>
+
